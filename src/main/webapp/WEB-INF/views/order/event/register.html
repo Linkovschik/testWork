@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Order Registration</title>
+</head>
+<body>
+
+<div id="app">
+    <form th:method="POST" th:action="@{/order/event/register}" th:object="${eventData}">
+        <label for="eventDate">Enter eventDate (yyyy-MM-ddThh:mm:ss): </label>
+        <input type="datetime-local" th:field="*{eventDate}" id="eventDate"/>
+        <br/>
+        <label for="employeeId">Enter employeeId: </label>
+        <input type="text" th:field="*{employeeId}" id="employeeId"/>
+        <br/>
+        <label for="clientId">Enter clientId: </label>
+        <input type="text" th:field="*{clientId}" id="clientId"/>
+        <br/>
+        <label for="productId">Enter productId: </label>
+        <input type="text" th:field="*{productId}" id="productId"/>
+        <br/>
+        <label for="productCost">Enter productCost: </label>
+        <input type="text" th:field="*{productCost}" id="productCost"/>
+        <br/>
+        <label for="expectedPickUPTime">Enter expectedPickUPTime (yyyy-MM-ddThh:mm:ss): </label>
+        <input type="datetime-local" th:field="*{expectedPickUPTime}" id="expectedPickUPTime"/>
+        <br/>
+<!--        <label for="eventType">Select eventType: </label>-->
+<!--        <select th:field="*{eventType}" id="eventType">-->
+<!--            <option value=""> &#45;&#45; </option>-->
+<!--            <option th:each="entry : ${mapEventTypes.entrySet()}"-->
+<!--                    th:value="${entry.key}"-->
+<!--                    th:utext="${entry.value}">-->
+<!--            </option>-->
+<!--        </select>-->
+        <input type="submit" value="Create!"/>
+    </form>
+</div>
+
+</body>
+</html>
+

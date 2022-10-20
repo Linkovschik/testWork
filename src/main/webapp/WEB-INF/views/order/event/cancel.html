@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Order Cancelling</title>
+</head>
+<body>
+
+<div id="app">
+    <form th:method="POST" th:action="@{/order/event/cancel}" th:object="${eventData}">
+        <label for="eventDate">Enter eventDate (yyyy-MM-ddThh:mm:ss): </label>
+        <input type="datetime-local" th:field="*{eventDate}" id="eventDate"/>
+        <br/>
+        <label for="reasonText">Enter reason: </label>
+        <input type="text" th:field="*{reason}" id="reasonText"/>
+        <br/>
+        <label for="employeeId">Enter employeeId: </label>
+        <input type="text" th:field="*{employeeId}" id="employeeId"/>
+        <br/>
+        <label for="orderId">OrderId: </label>
+        <input type="text" readonly th:field="*{orderId}" id="orderId"/>
+        <br/>
+        <input type="submit" value="Create!"/>
+    </form>
+</div>
+
+</body>
+</html>
+

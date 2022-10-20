@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Show</title>
+</head>
+<body>
+
+<p th:text="${orderInfo.toString()}">VALUE</p>
+
+<div th:each="orderEvent : ${orderInfo.getEventList()}">
+    <p th:text="${orderEvent.toString()}">orderId</p>
+</div>
+
+<div>
+    <a th:href="@{/order/event/cancel/{id}(id=${orderInfo.getOrderId()})}">Cancel order</a>
+    <br/>
+    <a th:href="@{/order/event/take/{id}(id=${orderInfo.getOrderId()})}">Take order in work</a>
+    <br/>
+    <a th:href="@{/order/event/prepare/{id}(id=${orderInfo.getOrderId()})}">Prepare order</a>
+    <br/>
+    <a th:href="@{/order/event/give/{id}(id=${orderInfo.getOrderId()})}">Give order</a>
+    <br/>
+    <hr/>
+    <a href="/order">Back</a>
+</div>
+
+</body>
+</html>
